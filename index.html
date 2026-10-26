@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Al'taco — мексиканская кухня в Химках</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="description" content="Тако, буррито, кесадилья и чимичанга с доставкой по Химкам за 60 минут. Самовывоз со скидкой 20%.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://cdn.foodsoul.ru">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=Unbounded:wght@700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="demo-bar">Прототип нового сайта. Меню, цены и фото — с all-taco.ru. Заказ не отправляется.</div>
+
+<header class="header">
+  <div class="wrap">
+    <a class="logo" href="#top"><img src="https://cdn.foodsoul.ru/zones/ru/chains/10089/images/themes/site/0eee69bf0bbc87296627e9c0dd0986e2.png?v1737625912" alt="" width="46" height="46">AL'TACO</a>
+    <nav class="nav" aria-label="Разделы">
+      <a href="#menu">Меню</a>
+      <a href="#how">Доставка и оплата</a>
+      <a href="#reviews">Отзывы</a>
+      <a href="#about">О нас</a>
+    </nav>
+    <a class="phone" href="tel:+79254573317">+7 925 457-33-17</a>
+    <button class="cart-btn" type="button" data-open-cart>Корзина <span class="count" id="cartCount">0</span></button>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero" aria-labelledby="heroTitle">
+    <div class="wrap">
+      <div>
+        <h1 id="heroTitle">Мексика в Химках: <em>тако, буррито</em> и чимичанга за 60 минут</h1>
+        <p class="lead">Готовим из говяжьей вырезки, курицы и свежих овощей, острота — по вашему вкусу. Привезём горячим или заберите сами со скидкой 20%.</p>
+        <div class="mode" role="group" aria-label="Способ получения" id="modeSwitch"></div>
+        <ul class="facts" id="facts"></ul>
+        <div class="hero-cta">
+          <a class="btn btn-chili" href="#menu">Смотреть меню</a>
+          <a class="btn btn-ghost" href="#reviews">Отзывы гостей</a>
+        </div>
+      </div>
+      <div class="collage" id="collage" aria-hidden="true"></div>
+    </div>
+  </section>
+
+  <div class="catbar" id="menu">
+    <div class="wrap">
+      <nav class="cats" id="cats" aria-label="Категории меню"></nav>
+      <div class="filter-row">
+        <div class="filters" id="filters" role="group" aria-label="Фильтры"></div>
+        <input class="search" id="search" type="search" placeholder="Найти блюдо или ингредиент" aria-label="Поиск по меню">
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap" id="catalog"></div>
+
+  <section class="band" id="how" aria-labelledby="howTitle">
+    <div class="wrap">
+      <h2 id="howTitle">Доставка и оплата</h2>
+      <div class="steps">
+        <div class="step"><b>60 мин</b>Доставим по Химкам в течение часа после подтверждения заказа.</div>
+        <div class="step"><b>от 3 500 ₽</b>Доставка бесплатно. Если меньше — 600 ₽, в корзине видно, сколько осталось до бесплатной.</div>
+        <div class="step"><b>−20%</b>На весь заказ при самовывозе. Скидка считается в корзине автоматически.</div>
+        <div class="step"><b>Карта, СБП, наличные</b>Онлайн-оплата при оформлении или наличными курьеру — как удобнее.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="reviews" id="reviews" aria-labelledby="reviewsTitle">
+    <div class="wrap">
+      <h2 id="reviewsTitle">Что говорят гости</h2>
+      <div class="review-list" id="reviewList"></div>
+    </div>
+  </section>
+
+  <section class="band" id="about" aria-labelledby="aboutTitle" style="margin-top:0">
+    <div class="wrap">
+      <h2 id="aboutTitle">О нас</h2>
+      <p style="max-width:46em;margin:0">Al'taco — уютное кафе мексиканской кухни. Готовим ароматные и пикантные блюда, а при желании — по-настоящему острые: тако, буррито, кесадилью, энчиладу и чимичангу. Погрузитесь в атмосферу Мексики и поднимите себе настроение.</p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div><b>Al'taco</b><br>Мексиканская кухня с доставкой по Химкам<br><a href="tel:+79254573317">+7 925 457-33-17</a></div>
+    <div><b>Мы в соцсетях</b><br><a href="https://vk.com/altacomexica">ВКонтакте</a> · <a href="https://t.me/altacomexica">Telegram</a></div>
+    <div><b>Реквизиты</b><br>ИП Байшева Наталья Валерьевна<br>ИНН 272590112847 · ОГРНИП 325270000066700<br>г. Химки, мкр. Сходня, ул. Железнодорожная, д. 4Б</div>
+  </div>
+</footer>
+
+<div class="mobile-cart" id="mobileCart"><button class="btn btn-chili" type="button" data-open-cart><span>Корзина · <span id="mCount">0</span></span><span id="mSum">0 ₽</span></button></div>
+
+<div class="overlay" id="overlay" hidden></div>
+<aside class="drawer" id="drawer" hidden aria-labelledby="drawerTitle" role="dialog" aria-modal="true">
+  <header><h2 id="drawerTitle">Ваш заказ</h2><button class="close" type="button" data-close-cart aria-label="Закрыть">×</button></header>
+  <div class="scroll" id="drawerBody"></div>
+  <div class="totals" id="totals"></div>
+</aside>
+
+<dialog class="dish" id="dish" aria-labelledby="dishTitle"></dialog>
+
+<script src="menu.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
