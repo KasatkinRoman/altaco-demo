@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Al'taco</title>
+<script src="https://telegram.org/js/telegram-web-app.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://cdn.foodsoul.ru">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;700;800&family=Unbounded:wght@700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div id="app">
+  <!-- Menu screen -->
+  <section class="screen" id="screenMenu">
+    <header class="top">
+      <div class="brand"><img src="https://cdn.foodsoul.ru/zones/ru/chains/10089/images/themes/site/0eee69bf0bbc87296627e9c0dd0986e2.png?v1737625912" alt="" width="36" height="36"><div><b>Al'taco</b><small id="modeHint"></small></div></div>
+      <div class="seg" id="modeSwitch" role="group" aria-label="Способ получения"></div>
+    </header>
+    <div class="sticky">
+      <nav class="cats" id="cats" aria-label="Категории"></nav>
+      <div class="chips" id="filters" role="group" aria-label="Фильтры"></div>
+    </div>
+    <div id="catalog"></div>
+    <p class="demo">Демо-версия: заказ не отправляется.</p>
+  </section>
+
+  <!-- Cart screen -->
+  <section class="screen" id="screenCart" hidden>
+    <h1 class="title">Корзина</h1>
+    <div id="cartBody"></div>
+  </section>
+
+  <!-- Checkout screen -->
+  <section class="screen" id="screenCheckout" hidden>
+    <h1 class="title">Оформление</h1>
+    <form class="form" id="orderForm" novalidate>
+      <div class="seg wide" id="modeSwitch2" role="group" aria-label="Способ получения"></div>
+      <label>Имя<input name="name" autocomplete="name" required></label>
+      <label>Телефон
+        <span class="phone-row"><input name="phone" type="tel" autocomplete="tel" placeholder="+7" required><button type="button" class="ghost" id="sharePhone">Из Telegram</button></span>
+      </label>
+      <label id="addrField">Адрес в Химках<input name="address" autocomplete="street-address" placeholder="Улица, дом, квартира"></label>
+      <label>Когда<select name="time"><option>Как можно скорее</option><option>Через 1,5 часа</option><option>Через 2 часа</option></select></label>
+      <fieldset class="pay"><legend>Оплата</legend>
+        <label><input type="radio" name="pay" value="online" checked> Онлайн: карта или СБП</label>
+        <label><input type="radio" name="pay" value="cash"> Наличными при получении</label>
+      </fieldset>
+      <label>Комментарий<textarea name="comment" rows="2" placeholder="Например: сделать острее"></textarea></label>
+      <div class="summary" id="checkoutSummary"></div>
+      <p class="err" id="orderErr" role="alert"></p>
+    </form>
+  </section>
+
+  <!-- Done screen -->
+  <section class="screen done" id="screenDone" hidden>
+    <div class="done-icon">🌮</div>
+    <h1 class="title">Спасибо!</h1>
+    <p id="doneText"></p>
+  </section>
+</div>
+
+<!-- Dish sheet -->
+<div class="sheet-backdrop" id="sheetBackdrop" hidden></div>
+<div class="sheet" id="sheet" hidden role="dialog" aria-modal="true" aria-labelledby="sheetTitle"></div>
+
+<!-- Fallback button outside Telegram (in a regular browser) -->
+<button class="fallback-main" id="fallbackMain" type="button" hidden></button>
+
+<script src="../menu.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

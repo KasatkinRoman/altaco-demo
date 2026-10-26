@@ -1,0 +1,113 @@
+/* Telegram sets --tg-theme-* from the user's chat theme; Al'taco colours are the fallback. */
+:root {
+  --bg: var(--tg-theme-bg-color, #fff7ec);
+  --card: var(--tg-theme-section-bg-color, #ffffff);
+  --text: var(--tg-theme-text-color, #1e1410);
+  --hint: var(--tg-theme-hint-color, #8a786e);
+  --line: color-mix(in srgb, var(--hint) 22%, transparent);
+  --chili: #d62f1f;
+  --saffron: #f5a623;
+  --lime: #5f9a2f;
+  --radius: 16px;
+  --font-display: "Unbounded", system-ui, sans-serif;
+}
+* { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+body { margin: 0; font-family: "Manrope", system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.45; }
+button, input, select, textarea { font: inherit; color: inherit; }
+img { display: block; max-width: 100%; }
+[hidden] { display: none !important; }
+:focus-visible { outline: 3px solid var(--saffron); outline-offset: 2px; }
+.screen { padding: 12px 14px 96px; }
+.title { font-family: var(--font-display); font-size: 22px; margin: 6px 0 14px; }
+
+/* Header */
+.top { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 8px; }
+.brand { display: flex; align-items: center; gap: 10px; min-width: 0; }
+.brand img { width: 36px; height: 36px; border-radius: 50%; background: #fff; padding: 2px; }
+.brand b { font-family: var(--font-display); font-size: 16px; display: block; }
+.brand small { color: var(--hint); font-size: 12px; display: block; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.seg { display: inline-flex; background: var(--card); border-radius: 999px; padding: 3px; border: 1px solid var(--line); flex: none; }
+.seg button { border: 0; background: transparent; border-radius: 999px; padding: 6px 10px; font-weight: 700; font-size: 13px; cursor: pointer; }
+.seg button[aria-pressed="true"] { background: var(--text); color: var(--bg); }
+.seg.wide { display: flex; }
+.seg.wide button { flex: 1; padding: 9px; }
+
+/* Sticky categories and filters */
+.sticky { position: sticky; top: 0; z-index: 5; background: var(--bg); margin: 0 -14px; padding: 8px 14px; display: grid; gap: 8px; }
+.cats, .chips { display: flex; gap: 6px; overflow-x: auto; scrollbar-width: none; }
+.cats::-webkit-scrollbar, .chips::-webkit-scrollbar { display: none; }
+.cat { white-space: nowrap; border: 0; background: transparent; padding: 7px 12px; border-radius: 999px; font-weight: 800; font-size: 14px; cursor: pointer; }
+.cat.active { background: var(--text); color: var(--bg); }
+.chip { white-space: nowrap; border: 1px solid var(--line); background: var(--card); border-radius: 999px; padding: 5px 10px; font-size: 13px; font-weight: 700; cursor: pointer; }
+.chip[aria-pressed="true"] { background: var(--chili); border-color: var(--chili); color: #fff; }
+
+/* Catalog */
+.section h2 { font-family: var(--font-display); font-size: 18px; margin: 18px 0 10px; }
+.grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+.card { background: var(--card); border-radius: var(--radius); overflow: hidden; display: flex; flex-direction: column; }
+.card .photo { position: relative; border: 0; padding: 0; background: #f3e6d4; aspect-ratio: 1 / 1; width: 100%; cursor: pointer; }
+.card .photo img { width: 100%; height: 100%; object-fit: cover; }
+.labels { position: absolute; top: 6px; left: 6px; display: flex; gap: 4px; flex-wrap: wrap; }
+.label { font-size: 10px; font-weight: 800; text-transform: uppercase; border-radius: 999px; padding: 2px 6px; color: #fff; background: #1e1410; }
+.label.hot { background: var(--chili); }
+.label.veg { background: var(--lime); }
+.label.new { background: var(--saffron); color: #1e1410; }
+.card .body { padding: 8px 10px 10px; display: flex; flex-direction: column; gap: 4px; flex: 1; }
+.card h3 { margin: 0; font-size: 14px; line-height: 1.25; font-weight: 800; }
+.card .meta { color: var(--hint); font-size: 12px; }
+.card .buy { margin-top: auto; padding-top: 6px; }
+.add { width: 100%; border: 0; background: color-mix(in srgb, var(--chili) 12%, var(--card)); color: var(--chili); border-radius: 999px; padding: 8px; font-weight: 800; cursor: pointer; }
+.qty { display: flex; align-items: center; justify-content: space-between; background: var(--chili); color: #fff; border-radius: 999px; }
+.qty button { width: 36px; height: 34px; border: 0; background: transparent; color: #fff; font-size: 18px; font-weight: 800; cursor: pointer; }
+.qty output { font-weight: 800; }
+.empty { text-align: center; color: var(--hint); padding: 30px 10px; }
+.demo { text-align: center; color: var(--hint); font-size: 12px; margin-top: 24px; }
+
+/* Cart */
+.line { display: grid; grid-template-columns: 56px 1fr 112px; gap: 10px; align-items: center; background: var(--card); border-radius: var(--radius); padding: 8px; margin-bottom: 8px; }
+.line img { width: 56px; height: 56px; object-fit: cover; border-radius: 12px; }
+.line .name { font-weight: 800; font-size: 14px; line-height: 1.25; }
+.line .sum { color: var(--hint); font-size: 13px; }
+.progress { background: var(--card); border-radius: var(--radius); padding: 12px; font-size: 14px; margin: 12px 0; }
+.progress .bar { height: 8px; background: var(--line); border-radius: 999px; overflow: hidden; margin-top: 8px; }
+.progress .bar i { display: block; height: 100%; background: var(--lime); }
+.upsell h3 { font-size: 15px; margin: 14px 0 8px; }
+.upsell-row { display: grid; grid-auto-flow: column; grid-auto-columns: 120px; gap: 8px; overflow-x: auto; scrollbar-width: none; }
+.mini { background: var(--card); border-radius: 14px; overflow: hidden; font-size: 12px; }
+.mini img { width: 100%; height: 76px; object-fit: cover; }
+.mini div { padding: 6px 8px 8px; }
+.mini .add { margin-top: 6px; padding: 6px; font-size: 12px; }
+.summary { background: var(--card); border-radius: var(--radius); padding: 12px; }
+.summary .row { display: flex; justify-content: space-between; font-size: 14px; padding: 2px 0; }
+.summary .row.discount { color: var(--lime); font-weight: 700; }
+.summary .row.total { font-weight: 800; font-size: 17px; padding-top: 6px; }
+.warn { color: var(--chili); font-size: 13px; font-weight: 700; margin-top: 6px; }
+
+/* Checkout */
+.form { display: grid; gap: 12px; }
+.form label { display: grid; gap: 4px; font-size: 13px; color: var(--hint); font-weight: 700; }
+.form input, .form select, .form textarea { border: 1px solid var(--line); background: var(--card); border-radius: 12px; padding: 11px 12px; font-size: 15px; width: 100%; }
+.phone-row { display: flex; gap: 8px; }
+.ghost { border: 1px solid var(--line); background: var(--card); border-radius: 12px; padding: 0 12px; font-weight: 700; font-size: 13px; white-space: nowrap; cursor: pointer; }
+.pay { border: 0; padding: 0; margin: 0; display: grid; gap: 6px; }
+.pay legend { font-size: 13px; color: var(--hint); font-weight: 700; margin-bottom: 4px; }
+.pay label { display: flex; flex-direction: row; align-items: center; gap: 10px; background: var(--card); border-radius: 12px; padding: 11px 12px; color: var(--text); font-size: 14px; }
+.pay input { width: auto; }
+.err { color: var(--chili); font-weight: 700; font-size: 13px; min-height: 18px; margin: 0; }
+.done { text-align: center; padding-top: 60px; }
+.done-icon { font-size: 64px; }
+
+/* Dish sheet */
+.sheet-backdrop { position: fixed; inset: 0; background: rgba(0,0,0,.45); z-index: 20; }
+.sheet { position: fixed; left: 0; right: 0; bottom: 0; z-index: 21; background: var(--bg); border-radius: 22px 22px 0 0; max-height: 88vh; overflow-y: auto; padding-bottom: 90px; animation: up .22s ease-out; }
+@keyframes up { from { transform: translateY(40px); opacity: .5; } to { transform: none; opacity: 1; } }
+@media (prefers-reduced-motion: reduce) { .sheet { animation: none; } }
+.sheet img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
+.sheet .info { padding: 14px; display: grid; gap: 8px; }
+.sheet h3 { font-family: var(--font-display); font-size: 20px; margin: 0; line-height: 1.2; }
+.sheet p { margin: 0; font-size: 14px; }
+.sheet .ingredients { font-size: 13px; color: var(--hint); background: var(--card); border-radius: 12px; padding: 10px; }
+.sheet .grab { width: 40px; height: 5px; border-radius: 3px; background: var(--line); margin: 8px auto; }
+
+/* Fallback main button for a regular browser */
+.fallback-main { position: fixed; left: 12px; right: 12px; bottom: 12px; z-index: 30; border: 0; border-radius: 14px; padding: 15px; background: var(--chili); color: #fff; font-weight: 800; font-size: 16px; box-shadow: 0 8px 24px rgba(0,0,0,.2); cursor: pointer; }
